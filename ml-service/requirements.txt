@@ -1,0 +1,12 @@
+monai==1.6.0
+itk
+SimpleITK
+torch
+scikit-image
+fastapi
+uvicorn
+scipy
+pynrrd
+nibabel
+python-multipart
+scikit-learn

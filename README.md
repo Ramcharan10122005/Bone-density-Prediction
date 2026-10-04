@@ -1,4 +1,4 @@
-# 🦷 Bone Density Prediction & 3D Dental Implant Planning Platform
+# Bone Density Prediction & 3D Dental Implant Planning Platform
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🌟 Overview
+## Overview
 
 In clinical dental implantology, accurate preoperative assessment of bone quality and surgical implant trajectory is paramount to achieve high primary stability and avoid vital anatomical hazards (such as the inferior alveolar nerve canal or maxillary sinus perforation).
 
@@ -31,7 +31,7 @@ In clinical dental implantology, accurate preoperative assessment of bone qualit
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 flowchart TD
@@ -77,7 +77,7 @@ flowchart TD
 
 ---
 
-## 🧠 Deep Learning Pipeline Breakdown
+## Deep Learning Pipeline Breakdown
 
 ### 1. Stage 1: Alveolar Bone Socket Localization
 - **Architecture**: 3D UNet (`spatial_dims=3`, `in_channels=1`, `out_channels=2`, `channels=(16, 32, 64, 128, 256)`, `strides=(2, 2, 2, 2)`, `num_res_units=2`, `norm="INSTANCE"`, `dropout=0.2`).
@@ -99,7 +99,7 @@ flowchart TD
 
 ---
 
-## 🩺 Anatomical Labels & Clinical Explanation
+## Anatomical Labels & Clinical Explanation
 
 Raw CBCT segmentations contain multiple anatomical layers. The platform isolates the surgical region of interest:
 
@@ -125,7 +125,7 @@ Raw CBCT segmentations contain multiple anatomical layers. The platform isolates
 
 ---
 
-## 📊 Misch Bone Density Classification Matrix
+## Misch Bone Density Classification Matrix
 
 Bone density is evaluated using the normalized mean CBCT intensity inside the predicted implant volume:
 
@@ -138,7 +138,7 @@ Bone density is evaluated using the normalized mean CBCT intensity inside the pr
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 implant-platform/
@@ -146,7 +146,7 @@ implant-platform/
 ├── .gitignore                 # Universal gitignore for Node, Python, and private scans
 ├── README.md                  # Comprehensive platform documentation
 │
-├── ml-service/                # 🐍 Python FastAPI Microservice
+├── ml-service/                # Python FastAPI Microservice
 │   ├── models/                # Trained weights:
 │   │   ├── best_stage1_model.pth  (Stage-1 UNet weights, ~18MB)
 │   │   └── best_stage2_model.pth  (Stage-2 UNet weights, ~73MB)
@@ -157,7 +157,7 @@ implant-platform/
 │   ├── main.py                # FastAPI endpoints & model memory caching
 │   └── requirements.txt       # Pinned dependencies (MONAI, Torch, SimpleITK)
 │
-├── backend/                   # 🟢 Express + TypeScript Proxy
+├── backend/                   # Express + TypeScript Proxy
 │   ├── src/
 │   │   ├── index.ts           # REST API (/upload, /jobs/:id, /health)
 │   │   └── queue.ts           # BullMQ Redis queue & background worker
@@ -166,7 +166,7 @@ implant-platform/
 │   ├── package.json
 │   └── tsconfig.json
 │
-└── frontend/                  # ⚛️ React 18 + Vite + Three.js Client
+└── frontend/                  # React 18 + Vite + Three.js Client
     ├── src/
     │   ├── components/
     │   │   ├── Viewer3D.tsx         # Interactive Three.js WebGL canvas
@@ -185,7 +185,7 @@ implant-platform/
 
 ---
 
-## 🔒 Privacy Notice on Patient Imaging Data
+## Privacy Notice on Patient Imaging Data
 
 > In strict adherence to medical data confidentiality and healthcare privacy standards, **raw patient CBCT volumetric scans (`*.nrrd`, `*.seg.nrrd`) are not included in this public repository**.
 >
@@ -196,7 +196,7 @@ implant-platform/
 
 ---
 
-## ⚡ Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 - **Node.js**: v18.0.0 or higher
@@ -298,7 +298,7 @@ npm run dev
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Backend Endpoints (`http://localhost:5001`)
 
@@ -352,7 +352,7 @@ Returns connection status for Redis and the BullMQ worker cluster.
 
 ---
 
-## 🧪 Ground-Truth Verification Script
+## Ground-Truth Verification Script
 
 An independent evaluation script is included to benchmark the pipeline against ground-truth segmentations:
 
@@ -371,7 +371,7 @@ The script reports:
 
 ---
 
-## 🚀 Pushing to GitHub
+## Pushing to GitHub
 
 To push this repository to your GitHub account:
 
@@ -394,6 +394,6 @@ git push -u origin main
 
 ---
 
-## ⚠️ Medical Device Disclaimer
+## Medical Device Disclaimer
 
 > **DISCLAIMER**: This software is intended strictly for research, scientific evaluation, and educational surgical planning purposes. It has not been cleared or approved by the US FDA, CE, or any other medical regulatory authority for diagnostic or therapeutic use. Clinical decisions must always be made by a licensed dental surgeon or radiologist using certified medical equipment.
